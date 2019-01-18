@@ -16,9 +16,12 @@
 				<span></span>登录<span></span>
 			</div>
 			<label for="">
-    <input id="name" type="text" placeholder="账号" class="common input" name="username" onFocus="keyboard(this.id)" value="jquery">
-    <input id="password" type="password" placeholder="密码" class="common input psw-height" name="userpass" onFocus="keyboard(this.id)">
-    </label>
+				<div>
+					<input id="name" type="text" placeholder="账号" class="common input" name="username" onFocus="keyboard(this.id)" value="jquery">
+    					<input id="password" type="password" placeholder="密码" class="common input psw-height" name="userpass" onFocus="keyboard(this.id)">
+				    <img id="img" onclick="hideShowPsw()" src="img/visible.png">
+				</div>
+    			</label>
 			<button onclick="login()" class="common login-btn">
         登录
     </button>
@@ -81,10 +84,25 @@
 			//键盘部分JS
 			$("#jianpan .title").css("line-height", $("#jianpan").height() / 5 + "px");
 
+			// 登录
 			function login() {
 				var username = $("#name").val();
 				var password = md5($("#password").val());
 				console.log("用户名：" + username + ", 密码为：" + password);
+			}
+
+			// 显示隐藏密码
+			var img = document.getElementById("img");
+			var passInput = document.getElementById("password");
+			//隐藏text block，显示password block
+			function hideShowPsw() {
+				if(passInput.type == "password") {
+					passInput.type = "text";
+					img.src = "img/invisible.png";
+				} else {
+					passInput.type = "password";
+					img.src = "img/visible.png";
+				}
 			}
 
 			function keyboard(id) {
