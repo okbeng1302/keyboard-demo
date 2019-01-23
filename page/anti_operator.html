@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Js 禁止复制、粘贴和另存为</title>
+	</head>
+
+	<body>
+		<!-- 禁止文件另存为 -->
+		<noscript><iframe src='*.htm'></iframe></noscript>
+		<div>
+			<h5>Js 禁止复制、粘贴和另存为</h1>
+		</div>
+		<script>
+			// 禁止复制粘贴
+			document.oncontextmenu = new Function("event.returnValue=false");
+			document.onselectstart = new Function("event.returnValue=false");
+			// 禁止 另存为  ctrl + s 或者 command + s
+			window.addEventListener('keydown', function (e) {
+   				 if(e.keyCode == 83 && (navigator.platform.match('Mac') ? e.metaKey : e.ctrlKey)) {
+        				e.preventDefault();
+   				 }
+			})
+		</script>
+	</body>
+</html>

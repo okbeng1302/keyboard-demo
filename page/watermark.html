@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>JS 添加水印</title>
+		<!--
+        	作者：apple
+        	时间：2019-01-23
+        	描述：给页面图片水印
+        -->
+				<script src="../js/watermark_photo.js"></script>
+		<!-- 网页内容水印 -->
+<!--		<script src="../js/watermark.js"></script>
+-->	</head>
+
+	<body>
+		<div id="container" align="center">
+			<h5>Js 添加水印</h5>
+		</div>
+		<!--
+        	作者：apple
+        	时间：2019-01-23
+        	描述：图片水印
+        -->
+		<script>
+			watermark(['../img/timg.jpeg', '../img/visible.png'])
+				.image(watermark.image.lowerRight())
+				.then(function(img) {
+					document.getElementById('container').appendChild(img)
+				});
+		</script>
+		<!--
+		作者：apple 时间：2019-01-23 描述：网页页面水印
+		-->
+		<!--<script>
+			watermark({
+				watermark_txt0: '水印来了',
+				watermark_txt1: '晓滨',
+				watermark_txt2: '中信银行'
+			});
+		</script>-->
+	</body>
+
+</html>
