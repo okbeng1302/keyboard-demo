@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h5>晓滨，我这个页面不能被Iframe</h5>
+		<p>参考：<a href="https://www.cnblogs.com/bella-lin/p/9266994.html">https://www.cnblogs.com/bella-lin/p/9266994.html</a></p>
+		<script language="JavaScript">
+			// 禁止所有的页面 iframe 嵌入本页面
+			if(top.location != location) {
+				top.location.href = location.href;
+			}
+			// 禁止其他域名的页面 iframe 嵌入本页面
+//			try {　　
+//				top.location.hostname;　　
+//				if(top.location.hostname != window.location.hostname) {　　　　
+//					top.location.href = window.location.href;　　
+//				}
+//			} catch(e) {　　
+//				top.location.href = window.location.href;
+//			}
+		</script>
+	</body>
+
+</html>

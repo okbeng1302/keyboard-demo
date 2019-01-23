@@ -9,9 +9,15 @@
 	<body>
 		<!-- 禁止文件另存为 -->
 		<noscript><iframe src='*.htm'></iframe></noscript>
-		<div>
+		<div align="center">
 			<h5>Js 禁止复制、粘贴和另存为</h1>
 		</div>
+		<!-- iframe 嵌入页面
+        -->
+		<div align="center">
+			<iframe src="anti_frame.html"></iframe>
+		</div>
+		
 		<script>
 			// 禁止复制粘贴
 			document.oncontextmenu = new Function("event.returnValue=false");
