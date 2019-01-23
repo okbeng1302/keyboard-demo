@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表单数据有效性检验</title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="../js/jquery.validate.min.js"></script>
+	</head>
+
+	<body>
+		<form id="reg" action="123.html">
+			<p>账号：<input class="required" minlength="2" type="text" name="user" value="" /></p>
+			<p>邮箱：<input class="required email" type="text" name="email" value="" /></p>
+			<input type="submit" value="提交" />
+		</form>
+		<script type="text/javascript">
+			//使用方法
+			$(function() {
+				// console.log(1)
+				$('#reg').validate({
+					//需要检测哪些数据及规则
+					rules: {
+						user: {
+							required: true,
+							minlength: 2
+						},
+						email: {
+							required: true,
+							email: true
+						}
+					},
+
+					messages: {
+						user: {
+							//提示信息可以自己改
+							required: '帐号不得为空！',
+							minlength: '帐号不得小于 2 位！',
+						},
+						email: {
+							required: '帐号不得为空！',
+							email: '注意！请输入正确的邮箱格式',
+						},
+					},
+					//进行测试时，不需要页面进行跳转，开启调试模式禁止提交。
+					debug: true,
+					submitHandler: function() {
+						alert(1)
+					},
+					// remote:url，可以对表单进行 ajax 验证，默认会提交当前验证的值到远程地址。例如我们在注册时，需要通过后台服务器验证该账号是否被注册，这时就需要用到ajax，其具体使用方法如下：
+					// rules : {
+					//     user : {
+					//         required : true, 
+					//         rangelength:[3,5],
+					//         remote : 'user.php',
+					//     }
+					// },          
+					// messages : {
+					//     user : {
+					//         required : '帐号不得为空！',   
+					//         rangelength : '帐号长度需要在 {0}-{1} 位之间！',
+					//         remote : '账号被占用',
+					//     },
+					// }
+
+				});
+			});
+		</script>
+	</body>
+
+</html>
